@@ -8,6 +8,8 @@ class A extends JFrame implements ActionListener
 	int result;
 	A()
 	{
+		addWindowListener(new pp());	
+		
 		JLabel l1 = new JLabel("Number 1 : ");
 		JLabel l2 = new JLabel("Number 2 : ");
 		JLabel l3 = new JLabel("Result : ");
@@ -30,6 +32,15 @@ class A extends JFrame implements ActionListener
 		b1.addActionListener(this);
 		b2.addActionListener(this);
 	}
+	
+	class pp extends WindowAdapter
+	{
+		public void windowClosing(WindowEvent e)
+		{
+			System.exit(0);
+		}
+	}
+	
 	public void actionPerformed(ActionEvent e)
 	{
 		String s = e.getActionCommand();
